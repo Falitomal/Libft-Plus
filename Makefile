@@ -6,7 +6,7 @@
 #    By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 13:20:35 by jledesma          #+#    #+#              #
-#    Updated: 2022/08/19 13:00:36 by jledesma         ###   ########.fr        #
+#    Updated: 2022/08/22 20:26:24 by jledesma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,21 +46,22 @@ all : $(LIBFT_PLUS)
 $(LIBFT_PLUS):
 	@${NORMI} 
 	@clear
+	@${CC} -c ${CFLAGS} ${SRCS} ${BONUS}
+	@ar rs ${LIBFT_PLUS} ${OBJS}
 	@echo "\n\n\n$(COLOR_DONE)>>> Norminette   Checked <<<"
 	@echo "$(COLOR_DONE)>>> Libft           Done <<<"
 	@echo "$(COLOR_DONE)>>> Get_Next_Line   Done <<<"
 	@echo "$(COLOR_DONE)>>> Printf Done     Done <<<"
-	@${CC} -c ${CFLAGS} ${SRCS} ${BONUS}
 
 	
 # Rule to remove all files and directory
 clean: 
-		@${RM} ${OBJS} ${OBJS_BONUS}
-		@echo "\n\n\n$(COLOR_DONE)>>> Clean       Done <<<"
+	@${RM} ${OBJS} ${OBJS_BONUS}
+	@echo "\n\n\n$(COLOR_DONE)>>> Clean       Done <<<"
 # Rule to remove
 fclean:		clean
-			@${RM} ${LIBFT_PLUS}
-		@echo "$(COLOR_DONE)>>> Force     Clean  <<<"
+	@${RM} ${LIBFT_PLUS}
+	@echo "$(COLOR_DONE)>>> Force     Clean  <<<"
 # Bonus
 bonus: ${OBJS} ${OBJS_BONUS}
 	ar rs ${LIBFT_PLUS} ${OBJS} ${OBJS_BONUS}
