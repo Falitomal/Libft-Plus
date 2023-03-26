@@ -86,23 +86,23 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 ** get_next_line
 */
 
-size_t				ft_strlen_get(char *str);
-char				*ft_strjoin_get(char *s1, char *s2);
-char				*ft_strchr_get(char *s, int c);
-char				*ft_get_line(char *line);
-char				*ft_new_line(char *nline);
-char				*get_next_line(int fd);
-char				*get_get_line(int fd);
+size_t	ft_strlen_protected(const char *s);
+char	*ft_substr_sizeprotected(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin_sizeprotected(char const *s1, char const *s2);
+char	*get_until(char **buffer, int until);
+char	*read_and_find(int fd, char **buffer, char *buffer_read, ssize_t *bytes_read);
+char	*read_line(int fd, char **buffer);
+int		get_next_line(int fd);
 
 /*
 ** ft_printf 
 */
 
-int					ft_printf(const char *str, ...);
-void				ft_printf_char(char c, int *i);
-void				ft_printf_int(int nb, int *i);
-void				ft_printf_str(char *str, int *i);
-void				ft_printf_hex(unsigned long long nb, int *i);
-void				ft_printf_nb(unsigned int nb, int *i);
-void				ft_printf_base(unsigned int n, char *base, int *i);
+void ft_putchar_i(char c, int *i);
+void ft_puthex(unsigned long long n, int *i, char *base);
+void ft_putint(unsigned int nb, int *i);
+void ft_putstr_i(char *str, int *i);
+void ft_putnbr_i(int nb, int *i);
+void ft_print_all(const char *str, int *i, va_list args, int x);
+int	ft_printf(char const *str, ...);
 #endif

@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "get_next_line_utils.h"
-#include <unistd.h>
-#include <stdlib.h>
 
 char	*get_until(char **buffer, int until)
 {
