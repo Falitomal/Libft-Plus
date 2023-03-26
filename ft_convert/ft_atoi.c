@@ -13,8 +13,8 @@
 #include "libft.h"
 
 /* 
-** Funcion ft_isspace elimina espacios, salto de lineas,
-** tabulaciones etc, diversos caracteres ascii
+** Function ft_isspace removes spaces, line breaks,
+** tabs etc., various ascii characters
 */
 static int	ft_isspace(char c)
 {
@@ -24,8 +24,8 @@ static int	ft_isspace(char c)
 }
 
 /* 
-** Funcion ft_overflow determina que el numero no desbode por numero maximo
-** chequea que sea maximo negativo o positivo
+** Function ft_overflow determines that the number does not overflow by a maximum number.
+** checks for negative or positive maxima
 */
 
 int	ft_overflow(int res, int sign)
@@ -37,8 +37,8 @@ int	ft_overflow(int res, int sign)
 	return (res);
 }
 /* 
-** Funcion ft_atoi replica la funcion original con el mismo tratamiento
-** de signos y usando la eliminacion de caracteres especiales con ft_isspace
+** Function ft_atoi replicates the original function with the same treatment of signs and using the removal of special characters with ft_isspace.
+** of signs and using the removal of special characters with ft_isspace
 */
 
 int	ft_atoi(const char *str)

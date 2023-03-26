@@ -17,7 +17,7 @@
 ** Negative numbers have to be handled.
 */
 
-static int	ft_negative(int n)
+static int	ft_abs(int n)
 {
 	if (n < 0)
 		n = -n;
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 	pos = dig - 1;
 	while (n)
 	{
-		res[pos] = ft_negative(n % 10) + '0';
+		res[pos] = ft_abs(n % 10) + '0';
 		n = n / 10;
 		pos--;
 	}

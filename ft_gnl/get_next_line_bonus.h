@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/24 14:07:44 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/24 14:29:30 by jledesma         ###   ########.fr       */
+/*   Created: 2022/05/12 13:51:02 by jledesma          #+#    #+#             */
+/*   Updated: 2022/05/12 15:56:45 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_UTILS_H
+# define GET_NEXT_LINE_UTILS_H
 
-/*
-** Send a string to specific file descriptor with line jump
-*/
-void	ft_putendl_fd(char *s, int fd)
-{
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
-}
+size_t	ft_strlen_protected(const char *s);
+char	*ft_substr_sizeprotected(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin_sizeprotected(char const *s1, char const *s2);
+
+#endif
