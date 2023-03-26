@@ -10,64 +10,111 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_PLUS	= libft.a
+LIBFT_PLUS	:= libft.a
 
-SRCS	= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
-ft_memset.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
-ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
-ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-ft_substr.c ft_strjoin.c  ft_strmapi.c ft_strtrim.c ft_itoa.c ft_split.c \
-ft_striteri.c
+SRC_DIR	:= src
+OBJ_DIR	:= obj
 
+IS_DIR		:= ft_is
+IS_NAMES	:= ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+IS_FILES	:= $(addprefix $(IS_DIR)/, $(IS_NAMES)) 
 
-BONUS = ft_lstnew_bonus.c	ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
-	get_next_line_bonus.c  get_next_line_utils_bonus.c   \
-	ft_printf_base.c ft_printf_char.c ft_printf_hex.c ft_printf_int.c \
-	ft_printf_nb.c ft_printf_str.c ft_printf.c
-	
-OBJS	=	${SRCS:.c=.o}
+LST_DIR		:= ft_list
+LST_NAMES	:= ft_lstadd_back_bonus ft_lstadd_front_bonus ft_lstclear_bonus
+				ft_lstdelone_bonus ft_lstiter_bonus ft_lstlast_bonus \
+				ft_lstmap_bonus ft_lstnew_bonus ft_lstsize_bonus 
+LST_FILES	:= $(addprefix $(LST_DIR)/, $(LST_NAMES)) 
 
-OBJS_BONUS	=	${BONUS:.c=.o}
+MEM_DIR		:= ft_mem
+MEM_NAMES	:= ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy \
+		  		ft_memmove ft_memset
+MEM_FILES	:= $(addprefix $(MEM_DIR)/, $(MEM_NAMES)) 
 
-CC	= gcc
+STR_DIR		:= ft_str
+STR_NAMES	:= ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
+		  	   ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
+			   ft_strnstr ft_strrchr ft_strtrim ft_substr \
+			   ft_strsome ft_strevery \
+			   ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
+STR_FILES	:= $(addprefix $(STR_DIR)/, $(STR_NAMES)) 
 
-CFLAGS = -Wall -Wextra -Werror
+TO_DIR		:= ft_convert
+TO_NAMES	:= ft_atoi ft_itoa ft_tolower ft_toupper 
+TO_FILES	:= $(addprefix $(TO_DIR)/, $(TO_NAMES))
 
-RM = rm -f
+FT_PRINTF_DIR	:= ft_printf
+FT_PRINTF_NAMES	:= ft_printf ft_printf_utils
+FT_PRINTF_FILES	:= $(addprefix $(FT_PRINTF_DIR)/, $(FT_PRINTF_NAMES)) 
 
-NORMI = norminette .
+GNL_DIR		:= ft_gnl
+GNL_NAMES	:= get_next_line_bonus get_next_line_utils
+GNL_FILES	:= $(addprefix $(GNL_DIR)/, $(GNL_NAMES)) 
 
-COLOR_DONE = \033[47m\033[1;32m
+SRCS		:= $(addsuffix .c, $(addprefix $(SRC_DIR)/, $(IS_FILES) \
+	$(LST_FILES) $(MEM_FILES) $(STR_FILES) $(TO_FILES) \
+	$(FT_PRINTF_FILES) $(GNL_FILES))) 
 
-all : $(LIBFT_PLUS)
+OBJS		:= $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(IS_FILES) \
+	$(LST_FILES) $(MEM_FILES) $(STR_FILES) $(TO_FILES) \
+	$(FT_PRINTF_FILES) $(GNL_FILES)))
 
-$(LIBFT_PLUS):
-	@${NORMI} 
-	@clear
-	@echo "\n\n\n$(COLOR_DONE)>>> Norminette   Checked <<<"
-	@echo "$(COLOR_DONE)>>> Libft           Done <<<"
-	@echo "$(COLOR_DONE)>>> Get_Next_Line   Done <<<"
-	@echo "$(COLOR_DONE)>>> Printf Done     Done <<<"
-	@${CC} -c ${CFLAGS} ${SRCS} ${BONUS}
+SRCS_NUM	:= $(words $(SRCS))
+OBJS_CREATED:= $(shell if [ -d $(OBJ_DIR) ]; then ls -l $(OBJ_DIR)/* | grep -c "\.o"; else echo 0; fi)
 
-	
+CC			:= gcc
+
+CFLAGS		:= -Wall -Wextra -Werror
+
+INCLUDE		:= -I .
+
+AR			:= ar rcs
+
+RM			:= rm -f
+
+all:		$(NAME)
 # Rule to remove all files and directory
-clean: 
-		@${RM} ${OBJS} ${OBJS_BONUS}
-		@echo "\n\n\n$(COLOR_DONE)>>> Clean       Done <<<"
-# Rule to remove
-fclean:		clean
-			@${RM} ${LIBFT_PLUS}
-		@echo "$(COLOR_DONE)>>> Force     Clean  <<<"
-# Bonus
-bonus: ${OBJS} ${OBJS_BONUS}
-	ar rs ${LIBFT_PLUS} ${OBJS} ${OBJS_BONUS}
-	
-# Rule to re-make all
-re:	fclean all	
-	@echo "$(COLOR_DONE)>>> Force        Re Make <<<"
+clean:
+	@echo "Removing objects..."
+	@$(RM) $(OBJS)
+	@$(RM) -r $(OBJ_DIR)
 
-# Rule for reserve this LIBFT_PLUSs and not exist files with this LIBFT_PLUSs
-.PHONY: all, clean, fclean, re
+fclean:		clean
+	@echo "Removing library..."
+	@$(RM) $(NAME)
+	@$(eval OBJS_CREATED = 0)
+
+re:			fclean all
+
+$(NAME):	$(OBJS)
+	@echo "Compiling library..."
+	@ar crs $(NAME) $^
+
+$(OBJS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(addprefix $(OBJ_DIR)/, $(IS_DIR) $(LST_DIR) $(LST_DIR) $(MEM_DIR) $(STR_DIR) $(TO_DIR) $(FT_PRINTF_DIR) $(GNL_DIR))
+	@$(eval OBJS_CREATED = $(shell expr $(OBJS_CREATED) + 1))
+	@printf "Making object $(OBJS_CREATED)/$(SRCS_NUM)...\r"
+	@if [ $(OBJS_CREATED) = $(SRCS_NUM) ]; then echo ""; fi
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+
+$(OBJ_DIR)/$(IS_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(LST_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(MEM_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(STR_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(TO_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(FT_PRINTF_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)/$(GNL_DIR):
+	@mkdir -p $@
+
+.PHONY: all obj_dirs clean fclean re
