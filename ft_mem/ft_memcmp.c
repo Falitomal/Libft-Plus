@@ -30,10 +30,7 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 	dest = (unsigned char *)ptr1;
 	sour = (unsigned char *)ptr2;
 	i = 0;
-	while (*sour == *dest && ++i < num)
-	{
-		sour++;
-		dest++;
-	}
-	return (*dest - *sour);
+	while (i < num - 1 && dest[i] == sour[i])
+		i++;
+	return (dest[i] - sour[i]);
 }

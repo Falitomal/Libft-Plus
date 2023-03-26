@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 12:10:38 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/26 12:16:06 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/21 18:03:39 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/23 20:31:41 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Return last nodo of the list
+**Copies n characters from memory area src to memory area dest.
 */
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (lst)
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	*str2;
+
+	str = (unsigned char *)dest;
+	str2 = (unsigned char *)src;
+	i = 0;
+	while (i < n)
 	{
-		while (lst->next)
-			lst = lst->next;
+		str[i] = str2[i];
+		i++;
 	}
-	return (lst);
+	return (dest);
 }

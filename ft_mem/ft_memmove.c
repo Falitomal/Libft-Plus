@@ -13,28 +13,28 @@
 #include "libft.h"
 
 /*
-**copies n characters from str2 to str1, but for
+**copies n characters from source to dest, but for
 ** overlapping memory blocks, memmove() is a safer approach than memcpy()
 */
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+void	*ft_memmove(void *dest, const void *source, size_t len)
 {
 	unsigned char	*d;
 	unsigned char	*s;
 
-	d = (unsigned char *)str1;
-	s = (unsigned char *)str2;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)source;
 	if (d == s)
-		return (str1);
-	if (d < s && (str1 || str2))
-		ft_memcpy(str1, str2, n);
+		return (dest);
+	if (d < s && (dest || source))
+		ft_memcpy(dest, source, len);
 	else
 	{
-		while (n > 0)
+		while (len > 0)
 		{
-			d[n - 1] = s[n - 1];
-			n--;
+			d[len - 1] = s[len - 1];
+			len--;
 		}
 	}
-	return (str1);
+	return (dest);
 }

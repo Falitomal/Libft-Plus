@@ -9,7 +9,7 @@
 /*   Updated: 2022/04/23 15:27:22 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "libft.h"
 /*
 ** function tests if a given character, in the current locale,
 ** can be represented as a valid 7–bit US-ASCII character

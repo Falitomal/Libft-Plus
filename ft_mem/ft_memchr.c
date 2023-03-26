@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 16:58:59 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/23 15:29:08 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/20 10:29:25 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/23 18:36:15 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 /*
-** Checks whether c is an alphabetic number
+** This function locates the first occurrence of character
+** in string converted to a unsigned char.
+** Returns a pointer to the byte located, or null if no exists.
 */
 
-int	ft_isdigit(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (c >= '0' && c <= '9')
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	chter;
+
+	str = (unsigned char *)s;
+	chter = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		return (1);
+		if (str[i] == chter)
+			return ((void*)str + i);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 18:03:39 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/23 20:31:41 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/21 12:42:11 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/23 20:32:41 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**Copies n characters from memory area src to memory area dest.
+** function void *memset(void *str, int c, size_t n) copies
+** the character c (an unsigned char) to the first n characters
+** of the string pointed to, by the argument str.
 */
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned char		*d;
-	unsigned const char	*s;
-	size_t				i;
+	size_t	*i;
 
-	d = dest;
-	s = src;
 	i = 0;
-	if (!dest && !src)
-		return (NULL);
 	while (i < n)
 	{
-		d[i] = s[i];
+		((unsigned char *)str)[i] = (unsigned char)c;
 		i++;
 	}
-	return (dest);
+	return (str);
 }

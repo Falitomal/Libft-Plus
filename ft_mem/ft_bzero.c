@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 12:42:11 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/23 20:32:41 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/20 18:18:23 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/23 15:12:53 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** function void *memset(void *str, int c, size_t n) copies
-** the character c (an unsigned char) to the first n characters
-** of the string pointed to, by the argument str.
+**function erases the data in the n bytes of the memory
+**starting at the location pointed to by s, by writing zeros
+** (bytes  containing '\0') to that area.
 */
 
-void	*ft_memset(void *str, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*i;
+	size_t			i;
+	unsigned char	*str;
 
-	i = (unsigned char *)str;
-	while (n > 0)
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		*(i++) = (unsigned char)c;
-		n--;
+		str[i] = '\0';
+		i++;
 	}
-	return (str);
 }
