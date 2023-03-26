@@ -12,25 +12,28 @@
 
 #include "libft.h"
 
+
+/*
+** This funtion copies a given number of characters from the source string
+** to the destination string, up to the size of the destination buffer.
+** It returns the length of the source string. It also checks for null pointers and the size
+** of the destination buffer to avoid buffer overflow errors.
+*/
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	count;
-	unsigned int	i;
+	size_t i;
 
-	count = 0;
+	if (!dst || !src)
+		return (0);
+	if (dstsize == 0)
+		return (ft_strlen(src));
 	i = 0;
-	while (src[count] != '\0')
+	while (i < dstsize - 1 && src[i])
 	{
-		count++;
+		dst[i] = src[i];
+		i++;
 	}
-	if (dstsize != 0)
-	{
-		while ((i < (dstsize - 1)) && (src[i] != '\0'))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (count);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

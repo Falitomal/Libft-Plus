@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 12:34:25 by jledesma          #+#    #+#             */
-/*   Updated: 2022/05/09 12:24:18 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/21 20:56:56 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/27 12:37:29 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Function is used to duplicate a string
-** a copy of source is created dynamically
-** and pointer to copy is returned.
+** searches for the last occurrence of the character c (an unsigned char)
+** in the string pointed to, by the argument str
 */
 
-char	*ft_strdup(const char *s)
+char	*ft_strrchr(const char *str, int c)
 {
-	char	*st1;
-	int		len;
-	int		i;
-
-	i = 0;
-	len = 0;
-	while (s[len])
-	len++;
-	st1 = malloc(sizeof(char) * (len + 1));
-	if (!st1)
-		return (NULL);
-	while (s[i])
+	size_t len;
+	len = ft_strlen(str);
+	char *s = (char *)(str + len);
+	while (s >= str)
 	{
-		st1[i] = s[i];
-		i++;
+		if (*s == (char)c)
+			return (s);
+		s--;
 	}
-	st1[i] = '\0';
-	return (st1);
+	return (NULL);
 }

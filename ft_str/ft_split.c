@@ -38,6 +38,7 @@ static int	ft_limit(const char *str, char c)
 	return (i);
 }
 
+
 static char	*ft_dupword(const char *s, int start, int finish)
 {
 	char	*word;

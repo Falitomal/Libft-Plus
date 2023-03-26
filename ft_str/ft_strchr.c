@@ -13,15 +13,19 @@
 #include "libft.h"
 
 /*
-** Searches for the first occurrence of the character c (an unsigned char)
-** in the string pointed to by the argument str
+** The function returns a pointer to the first character c found in the string str.
+** If c is not found in str, NULL is returned.
 */
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str && *str != (unsigned char)c)
-	str++;
-	if (*str == (unsigned char)c)
-		return ((char *)str);
-	return (NULL);
+	char *s;
+	s = (char *)str;
+	while (*s != (char)c)
+	{
+		if (*s == '\0')
+			return (NULL);
+		s++;
+	}
+	return (s);
 }

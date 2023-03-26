@@ -13,11 +13,11 @@
 #include "libft.h"
 
 /*
-** To each character of the string 's', apply the function 'f'
-** giving as parameters the index of each character within 's' 
-** and the character itself. function 'f' giving as parameters 
-** the index of each character within 's' and the character itself.
-** It generates a new string with the result of the successive use of 'f'.
+** This funtion creates a new string by applying the function f to each character
+** in the input string s and returns the new string.
+** It also checks for NULL pointers to avoid any undefined behavior.
+** The function ft_strdup is used to allocate memory for the new string, which is then modified in-place by the function f.
+** The null-terminator is added at the end of the new string after the loop.
 */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

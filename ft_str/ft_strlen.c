@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 12:25:34 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/27 13:04:24 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/19 18:38:30 by jledesma          #+#    #+#             */
+/*   Updated: 2022/05/13 11:41:26 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 /*
-** To each character in the string 's', apply the function 'f'
-** giving as parameters the index of each character within 's'
-** and the address of the character itself, which may be modified if necessary.
+** Funtion counts characters of string
 */
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (s && f)
-	{
-		while (s[i])
-		{
-			f(i, &s[i]);
-			i++;
-		}
-	}
+	while (str[i])
+		i++;
+	return (i);
 }

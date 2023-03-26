@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 20:56:56 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/27 12:37:29 by jledesma         ###   ########.fr       */
+/*   Created: 2022/04/27 12:25:34 by jledesma          #+#    #+#             */
+/*   Updated: 2022/04/27 13:04:24 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 /*
-** searches for the last occurrence of the character c (an unsigned char)
-** in the string pointed to, by the argument str
+** To each character in the string 's', apply the function 'f'
+** giving as parameters the index of each character within 's'
+** and the address of the character itself, which may be modified if necessary.
 */
-
-char	*ft_strrchr(const char *str, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*last;
+	size_t	i;
 
-	last = (char *)str + ft_strlen(str);
-	while (str <= last)
+	i = 0;
+	if (s && f)
 	{
-		if (*last == (unsigned char)c)
-			return (last);
-		last--;
+		while (s[i])
+		{
+			f(i, s + i);
+			i++;
+		}
 	}
-	return (0);
 }

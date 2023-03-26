@@ -13,31 +13,32 @@
 #include "libft.h"
 
 /*
-** The strnstr() function locates the	first occurrence of the	null-termi-
-**     nated string light in the	string big,
-**			where not more than	len characters
-**     are searched.  Characters that appear after a `\0'	character are not
-**     searched.
+** The funtion ft_strnstr searches for the first occurrence of the substring light in the string big,
+** up to a maximum of len characters. It starts by checking if light is an empty string and if so,
+** returns a pointer to big. Otherwise, it uses two nested loops to compare each character of light
+** with the corresponding character of big, stopping if it finds a mismatch or if it reaches the end of either string
+** or if it exceeds the len limit. If it finds a match, it returns a pointer to the start of the match in big.
+** If no match is found, it returns NULL.
 */
 
 char	*ft_strnstr(const char *big, const char *light, size_t len)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t i;
+	size_t j;
 
-	i = 0;
-	if (light[0] == '\0')
+	if(!*light)
 		return ((char *)big);
-	while (big[i] != '\0' && i < len)
+	i = 0;
+	while (big[i] && i < len)
 	{
 		j = 0;
 		while (big[i + j] == light[j] && (i + j) < len)
 		{
-			if (light[j + 1] == '\0')
+			if (!light[j + 1])
 				return ((char *)big + i);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
