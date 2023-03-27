@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:41:52 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/20 17:34:20 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
 /*
 ** This funtion copies a given number of characters from the source string
 ** to the destination string, up to the size of the destination buffer.
-** It returns the length of the source string. It also checks for null pointers and the size
+** It returns the length of the source string.
+** It also checks for null pointers and the size
 ** of the destination buffer to avoid buffer overflow errors.
 */
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
+	size_t	i;
 
 	if (!dst || !src)
 		return (0);

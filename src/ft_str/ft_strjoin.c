@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:08:22 by jledesma          #+#    #+#             */
-/*   Updated: 2022/05/13 11:20:43 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** This function concatenates two strings s1 and s2 by allocating a new string str
-** copying the characters of s1 into str, then copying the characters of s2 into str right after s1. The function also correctly adds a null terminator to the end of the new string. The function checks for a valid allocation of str and for s1 and s2 being valid pointers
-** before proceeding with the concatenation.
+** This function concatenates two strings s1 and s2 
+** by allocating a new string str copying the characters of s1 into str,
+** then copying the characters of s2 into str right after s1. 
+** The function also correctly adds a null terminator to the end of
+** the new string.The function checks for a valid allocation of str
+** and for s1 and s2 being valid pointers before
+** proceeding with the concatenation.
 */
 
 char	*ft_strjoin(char const *s1, char const *s2)

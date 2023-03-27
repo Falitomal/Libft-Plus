@@ -3,24 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+         #
+#    By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/23 13:20:35 by jledesma          #+#    #+#              #
-#    Updated: 2022/08/19 13:00:36 by jledesma         ###   ########.fr        #
+#    Created: 2023/03/27 13:00:48 by jledesma          #+#    #+#              #
+#    Updated: 2023/03/27 15:48:15 by jledesma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_PLUS	:= libft.a
+NAME		:= libft.a
 
-SRC_DIR	:= src
-OBJ_DIR	:= obj
+SRC_DIR		:= src
+OBJ_DIR		:= obj
 
 IS_DIR		:= ft_is
 IS_NAMES	:= ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
 IS_FILES	:= $(addprefix $(IS_DIR)/, $(IS_NAMES)) 
 
 LST_DIR		:= ft_list
-LST_NAMES	:= ft_lstadd_back_bonus ft_lstadd_front_bonus ft_lstclear_bonus
+LST_NAMES	:= ft_lstadd_back_bonus ft_lstadd_front_bonus ft_lstclear_bonus \
 				ft_lstdelone_bonus ft_lstiter_bonus ft_lstlast_bonus \
 				ft_lstmap_bonus ft_lstnew_bonus ft_lstsize_bonus 
 LST_FILES	:= $(addprefix $(LST_DIR)/, $(LST_NAMES)) 
@@ -34,7 +34,6 @@ STR_DIR		:= ft_str
 STR_NAMES	:= ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
 		  	   ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
 			   ft_strnstr ft_strrchr ft_strtrim ft_substr \
-			   ft_strsome ft_strevery \
 			   ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
 STR_FILES	:= $(addprefix $(STR_DIR)/, $(STR_NAMES)) 
 
@@ -72,7 +71,7 @@ AR			:= ar rcs
 RM			:= rm -f
 
 all:		$(NAME)
-# Rule to remove all files and directory
+
 clean:
 	@echo "Removing objects..."
 	@$(RM) $(OBJS)
@@ -89,7 +88,8 @@ $(NAME):	$(OBJS)
 	@echo "Compiling library..."
 	@ar crs $(NAME) $^
 
-$(OBJS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(addprefix $(OBJ_DIR)/, $(IS_DIR) $(LST_DIR) $(LST_DIR) $(MEM_DIR) $(STR_DIR) $(TO_DIR) $(FT_PRINTF_DIR) $(GNL_DIR))
+
+$(OBJS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(addprefix $(OBJ_DIR)/, $(IS_DIR) $(LST_DIR) $(LST_DIR) $(MEM_DIR) $(PUT_DIR) $(STR_DIR) $(TO_DIR) $(NUMLEN_DIR) $(FT_PRINTF_DIR) $(GNL_DIR) $(MATH_DIR) $(FILE_DIR))
 	@$(eval OBJS_CREATED = $(shell expr $(OBJS_CREATED) + 1))
 	@printf "Making object $(OBJS_CREATED)/$(SRCS_NUM)...\r"
 	@if [ $(OBJS_CREATED) = $(SRCS_NUM) ]; then echo ""; fi
@@ -105,6 +105,9 @@ $(OBJ_DIR)/$(LST_DIR):
 $(OBJ_DIR)/$(MEM_DIR):
 	@mkdir -p $@
 
+$(OBJ_DIR)/$(PUT_DIR):
+	@mkdir -p $@
+
 $(OBJ_DIR)/$(STR_DIR):
 	@mkdir -p $@
 
@@ -116,5 +119,9 @@ $(OBJ_DIR)/$(FT_PRINTF_DIR):
 
 $(OBJ_DIR)/$(GNL_DIR):
 	@mkdir -p $@
+
+
+
+.PHONY: all obj_dirs clean fclean re
 
 .PHONY: all obj_dirs clean fclean re

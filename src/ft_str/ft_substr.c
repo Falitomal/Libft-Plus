@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:05:14 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/27 13:57:02 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** and with a maximum length of len. It checks if s is NULL and if 
 ** start is greater than the length of s, and returns NULL or an empty 
 ** string accordingly. It then allocates memory for the new string and copies
-** the characters from s to the new string until len characters have been copied or
+** the characters from s to the new string until
+** len characters have been copied or
 ** the end of s is reached. Finally, it adds a null terminator
 ** to the end of the new string and returns it.
 */

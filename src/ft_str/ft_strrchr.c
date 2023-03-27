@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:56:56 by jledesma          #+#    #+#             */
-/*   Updated: 2022/04/27 12:37:29 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	size_t len;
+	size_t	len;
+	char	*s;
+
 	len = ft_strlen(str);
-	char *s = (char *)(str + len);
+	s = (char *)(str + len);
 	while (s >= str)
 	{
 		if (*s == (char)c)

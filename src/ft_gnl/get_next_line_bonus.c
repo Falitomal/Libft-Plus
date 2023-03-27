@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:49:34 by jledesma          #+#    #+#             */
-/*   Updated: 2022/08/19 12:27:32 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:11:34 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define BUFFER_SIZE 512
 
 char	*get_until(char **buffer, int until)
 {
@@ -82,7 +83,7 @@ char	*read_line(int fd, char **buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffers[256];
+	static char	*buffers[512];
 	char		*line;
 
 	if (fd < 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 19:44:08 by jledesma          #+#    #+#             */
-/*   Updated: 2022/05/16 19:39:42 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ** from separating the string using the character c as delimiter.
 ** The array must end with null pointer
 */
+
 static int	ft_limit(const char *str, char c)
 {
 	int	i;
@@ -37,7 +38,6 @@ static int	ft_limit(const char *str, char c)
 	}
 	return (i);
 }
-
 
 static char	*ft_dupword(const char *s, int start, int finish)
 {

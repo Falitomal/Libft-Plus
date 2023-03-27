@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 19:43:13 by jledesma          #+#    #+#             */
-/*   Updated: 2022/05/16 20:02:32 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	ft_isspace(char c)
 }
 
 /* 
-** Function ft_overflow determines that the number does not overflow by a maximum number.
+** Function ft_overflow determines that the number
+** does not overflow by a maximum number.
 ** checks for negative or positive maxima
 */
 
@@ -37,8 +38,8 @@ int	ft_overflow(int res, int sign)
 	return (res);
 }
 /* 
-** Function ft_atoi replicates the original function with the same treatment of signs and using the removal of special characters with ft_isspace.
-** of signs and using the removal of special characters with ft_isspace
+** Function ft_atoi replicates the original function with the same treatment
+** of signs and using the removal of special characters with ft_isspace.
 */
 
 int	ft_atoi(const char *str)

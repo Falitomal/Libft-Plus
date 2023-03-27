@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_base.c                                   :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:06:54 by jledesma          #+#    #+#             */
-/*   Updated: 2022/08/19 12:33:51 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
- 
+
 void	ft_putchar_i(char c, int *i)
 {
 	write(1, &c, 1);
@@ -27,7 +27,7 @@ void	ft_puthex(unsigned long long nb, int *i, char *base)
 
 void	ft_putint(unsigned int nb, int *i)
 {
-	if(nb >= 10)
+	if (nb >= 10)
 		ft_putint(nb / 10, i);
 	ft_putchar_i(nb % 10 + '0', i);
 }
@@ -36,11 +36,11 @@ void	ft_putstr_i(char *str, int *i)
 {
 	int	count;
 
-	if(!str)
-		{
-			ft_putstr_i("(null)", i);
-			return ;
-		}
+	if (!str)
+	{
+		ft_putstr_i("(null)", i);
+		return ;
+	}
 	count = 0;
 	while (str[count] != '\0')
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jledesma <jledesma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 19:50:50 by jledesma          #+#    #+#             */
-/*   Updated: 2022/05/13 13:35:25 by jledesma         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:44:16 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	size_t	start;
-	size_t  end;
+	char		*str;
+	size_t		start;
+	size_t		end;
 
 	if (!s1 || !set)
 		return (NULL);
